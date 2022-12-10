@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keyword" content ="I be learning every day">
+    <link rel="stylesheet" href="index.css">
+    <title>roast</title>
+</head>
+<body>
+    <form>
+
+        <label for="head">
+            head shape:
+        </label>
+        <select name="head" id="head"> 
+            <option value="big">big</option>
+            <option value="mid">medium</option>
+            <option value="small">small</option>
+            <option value="long">long</option>
+        </select>
+
+        <label for="bodysize">
+            Body Size:
+        </label>
+            <select name="bodysize" id="bodysize">
+              <option value="big">big</option>
+              <option value="medium">medium</option>
+              <option value="tall">tall</option>
+              <option value="short">short</option>
+            </select>
+        <label for="nose">
+            Nose size: 
+        </label>
+            <select name="nose" id="nosesize">
+                <option value="big">big</option>
+                <option value ="normal">regular</option>
+                <option value = "small">small</option>
+            </select>
+
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            document
+                .getElementById("head")
+                .addEventListener("input",handleSelect)
+        }) // this means through out the doc when it load we lisren thru the doc 
+            // we listen to the head ele and for each add event for input and the function it does is handle selcet
+
+        function handleSelect(ev){ // when makking a function for an event we can make the event a parameter
+            let select = ev.target;//document.getEleme("flavors") all the element optiion
+            console.log(select.selectedOptions)
+            let choices = [];
+            for(let i =0; i < select.selectedOptions.length;i++){
+                choices.push(select.selectedOptions[i].value);
+            }
+            //also could have did 
+            // choices = [].map.call(select.selectOptions,(option) => option.value)
+            
+            console.log(choices)
+        }
+//the event is so js stuff that comes everytime we slesct omething 
+        function handleData(ev){
+            let theInput = ev.target;
+            console.log(theInput.value, typeof theInput.value)
+        }
+
+
+        // now the second part bodysize
+                document.addEventListener("DOMContentLoaded",()=>{
+                document
+                    .getElementById("bodysize")
+                    .addEventListener("input",handleSelect)
+        })
+
+        // now the nose size
+            document.addEventListener("DOMContentLoaded",()=>{
+                document
+                        .getElementById("nosesize")// this gives us all the elments in the select
+                        .addEventListener("input",handleSelect)
+            })
+            
+
+
+    </script>
+</body>
+</html>
